@@ -31,6 +31,12 @@ jobs:
           pip install ruff==0.8.0
           pip install -r backend/requirements.txt
       - name: Lint with ruff
+        env:
+          POSTGRES_USER: dablek
+          POSTGRES_PASSWORD: lol425463
+          POSTGRES_DB: taski_docker
+          DB_HOST: 127.0.0.1
+          DB_PORT: 5432
         run: |
           python -m ruff check backend/
           cd backend/
